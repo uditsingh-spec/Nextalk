@@ -1,6 +1,6 @@
 # 💬 NexTalk — Real-Time Full Stack Chat Application
 
-![NexTalk Banner](./frontend/public/screenshot-for-readme.png)
+![NexTalk Banner](./frontend/public/screenshot-banner_png.svg)
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -95,3 +95,16 @@ npm run dev
 Open your browser and go to:
 
 http://localhost:5173
+
+
+
+## 📸 Screenshots
+
+### 🔐 Login Page
+![Login](./frontend/public/screenshot-login_png.png)
+
+### 👥 Contacts
+![Contacts](./frontend/public/screenshot-contacts_png.png)
+
+### 💬 Chat Page
+![Chat](./frontend/public/screenshot-chat_png.png)
