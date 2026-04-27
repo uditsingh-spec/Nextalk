@@ -101,10 +101,10 @@ http://localhost:5173
 ## 📸 Screenshots
 
 ### 🔐 Login Page
-![Login](./frontend/public/screenshot-login_png.png)
+![Login](./frontend/public/screenshot-login.png)
 
 ### 👥 Contacts
-![Contacts](./frontend/public/screenshot-contacts_png.png)
+![Contacts](./frontend/public/screenshot-contacts.png)
 
 ### 💬 Chat Page
-![Chat](./frontend/public/screenshot-chat_png.png)
+![Chat](./frontend/public/screenshot-chat.png)
