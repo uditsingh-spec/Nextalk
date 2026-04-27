@@ -97,7 +97,6 @@ Open your browser and go to:
 http://localhost:5173
 
 
-
 ## 📸 Screenshots
 
 ### 🔐 Login Page
@@ -108,3 +107,6 @@ http://localhost:5173
 
 ### 💬 Chat Page
 ![Chat](./frontend/public/screenshot-chat.png)
+
+### ⚡ Real Time Messaging
+![Realtime](./frontend/public/Screenshot-realtime.png)
