@@ -27,6 +27,18 @@ export const getMessagesByUserId = async (req, res) => {
       ],
     });
 
+    // mark messages as read when receiver opens chat
+    await Message.updateMany(
+      { senderId: userToChatId, receiverId: myId, status: { $ne: "read" } },
+      { status: "read" }
+    );
+
+    // notify sender that messages are read via socket
+    const senderSocketId = getReceiverSocketId(userToChatId);
+    if (senderSocketId) {
+      io.to(senderSocketId).emit("messagesRead", { by: myId });
+    }
+
     res.status(200).json(messages);
   } catch (error) {
     console.log("Error in getMessages controller: ", error.message);
@@ -53,7 +65,6 @@ export const sendMessage = async (req, res) => {
 
     let imageUrl;
     if (image) {
-      // upload base64 image to cloudinary
       const uploadResponse = await cloudinary.uploader.upload(image);
       imageUrl = uploadResponse.secure_url;
     }
@@ -63,6 +74,7 @@ export const sendMessage = async (req, res) => {
       receiverId,
       text,
       image: imageUrl,
+      status: getReceiverSocketId(receiverId) ? "delivered" : "sent",
     });
 
     await newMessage.save();
@@ -83,7 +95,6 @@ export const getChatPartners = async (req, res) => {
   try {
     const loggedInUserId = req.user._id;
 
-    // find all the messages where the logged-in user is either sender or receiver
     const messages = await Message.find({
       $or: [{ senderId: loggedInUserId }, { receiverId: loggedInUserId }],
     });
